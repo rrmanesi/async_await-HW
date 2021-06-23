@@ -1,0 +1,30 @@
+function getData(city){
+ let url ="https://geocode.xyz"
+  url +=   "/" + city + "?json=1"
+   console.log(url)
+  fetch(url)
+ // let data = response.json()
+  .then(response => response.json())
+  .then(data =>{
+    console.log(data)
+    console.log(data.latt)
+    console.log(data.longt) 
+  })
+
+}
+
+
+async function getLatLong(city){
+ let url ="https://geocode.xyz"
+  url +=   "/" + city + "?json=1"
+  console.log(url)
+  const response = await fetch(url)
+  const data2 = await response.json()
+  console.log(data2)
+  console.log(data2.latt)
+  console.log(data2.longt)
+  
+}
+
+getData('Austin')
+getLatLong('Houston')
